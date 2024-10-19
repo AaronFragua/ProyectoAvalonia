@@ -21,4 +21,14 @@
   <img src="https://github.com/user-attachments/assets/723c32d4-18f6-4262-a6cc-55250119c92f" style="width: 245px;">
 </div>
 
+<p align="justify">
+    Una vez introducidos los parámetros de la reparación que queremos tasar; tanto los del dispositivo a reparar como los de la propia reparación, simplemente tenemos que pulsar el botón de calcular precio, el cual llamará a la función que devuelve el precio de la reparación según haya sido simple, compleja, el tipo de dispositivo a reparar y el precio total de las piezas de sustitución. Podemos ver algunos casos de uso en las siguientes imágenes, las cuales son dos casos de éxito y dos errores con sus respectivos mensajes al usuario:</br></br>
+</p>
+<div style="display: flex; gap: 10px;">
+  <img src="https://github.com/user-attachments/assets/40fde277-d631-4af6-94ae-adec0c14ddac" style="width: 245px;">
+  <img src="https://github.com/user-attachments/assets/04324724-180a-4651-a826-d15cd379bbe6" style="width: 245px;">
+  <img src="https://github.com/user-attachments/assets/041ae43e-c6d7-49bb-ba5e-439f9b55ca84" style="width: 245px;">
+  <img src="https://github.com/user-attachments/assets/af05de2d-9787-422b-ac58-925c5c39c87a" style="width: 245px;">
+</div>
+
 
