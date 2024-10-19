@@ -31,4 +31,120 @@
   <img src="https://github.com/user-attachments/assets/af05de2d-9787-422b-ac58-925c5c39c87a" style="width: 245px;">
 </div>
 
+<h2><b>CLASES</b>
+</h2>
+<h3><b></b>Dispositivo.cs</b>
+</h3>
+<h4 align="justify">La superclase Dispositivo.cs es creada con la finalidad de contener los atributos comunes de todos los dispositivos que puedan ser reparados en nuestro sistema. Así pues, tiene 4 atributos:</br></br>
+  - NumeroSerie de tipo int.</br>
+  - Modelo de tipo String.</br>
+  - PrecioReparacionPorHora de tipo int.</br>
+  - Tipo de tipo TipoDispositivo, que es un enumerado que solo puede tomar los valores Radio, TV, DVD y TDT.</br></br>
+  Además, cuenta con un constructor que recibe como parametros los valores que pasaremos a esos cuatro atributos, un método getNumeroSerie, que devuelve el numero de serie y otro getTipoDispositivo que devuelve el tipo del dispositivo. Estas funciones serían innecesarias por dos motivos: los atributos son públicos y estas funciones no se usan en este proyecto. La razón de incluirlas es que se tiene pensado modificar en un futuro para poner los atributos privados y hacer uso de estas funciones, por lo que el dejarlas hechas agiliza el trámite de modificación que se prevee para un futuro próximo.
+</h4>
+
+<h3><b>TV.cs</b>
+</h3>
+<h4 align="justify">La subclase TV.cs hereda de la superclase Dispositivo.cs y se crea con la finalidad de poder instanciar las distintas TV´s que se arreglen en el sistema. Al heredar de la superclase Dispositivo, hereda los cuatro atributos que comentamos anteriormente, además de contar con uno nuevo:</br></br>
+  - Pulgadas de tipo int.</br></br>
+  Además, cuenta con un constructor que recibe como parametros los valores que pasaremos a este atributos y a los otros cuatro que hereda de la clase Dispositivo.
+</h4>
+
+<h3><b>TDT.cs</b>
+</h3>
+<h4 align="justify">La subclase TDT.cs hereda de la superclase Dispositivo.cs y se crea con la finalidad de poder instanciar los distintos TDT´s que se arreglen en el sistema. Al heredar de la superclase Dispositivo, hereda los cuatro atributos que comentamos anteriormente, además de contar con uno nuevo:</br></br>
+  - TiempoGrabacion de tipo int.</br>
+  - PuedeGrabar de tipo booleano</br></br>
+  Además, cuenta con un constructor que recibe como parametros el valor que pasaremos al atributo TiempoGrabacion (que nos sirve para instanciar también el atributo PuedeGrabar al otorgar el valor TiempoGrabacion>0 a este atributo) y a los otros cuatro que hereda de la clase Dispositivo.
+</h4>
+
+<h3><b>DVD.cs</b>
+</h3>
+<h4 align="justify">La subclase DVD.cs hereda de la superclase Dispositivo.cs y se crea con la finalidad de poder instanciar los distintos DVD´s que se arreglen en el sistema. Al heredar de la superclase Dispositivo, hereda los cuatro atributos que comentamos anteriormente, además de contar con uno nuevo:</br></br>
+  - TiempoGrabacion de tipo int.</br>
+  - PuedeGrabar de tipo booleano.</br>
+  - BlueRay de tipo booleano.</br></br>
+  Además, cuenta con un constructor que recibe como parametros los valores que pasaremos a los atributos TiempoGrabacion (que nos permitirá inicializar el valor de PuedeGrabar de forma análoga a como lo hacíamos en la clase TDT) y BlueRay y a los otros cuatro que hereda de la clase Dispositivo.
+</h4>
+
+<h3><b>Radio.cs</b>
+</h3>
+<h4 align="justify">La subclase Radio.cs hereda de la superclase Dispositivo.cs y se crea con la finalidad de poder instanciar las distintas Radios que se arreglen en el sistema. Al heredar de la superclase Dispositivo, hereda los cuatro atributos que comentamos anteriormente, además de contar con uno nuevo:</br></br>
+  - MiBandas de tipo Bandas, que es un enumerado que puede tomar los valores AM, FM o AMBAS.</br></br>
+  Además, cuenta con un constructor que recibe como parametros el valor que pasaremos a este atributo y a los otros cuatro que hereda de la clase Dispositivo.
+</h4>
+
+<h3><b></b>Reparacion.cs</b>
+</h3>
+<h4 align="justify">La superclase Reparacion.cs es creada con la finalidad de contener los atributos comunes de todas las reparaciones que puedan tener lugar en nuestro sistema. Así pues, tiene 3 atributos:</br></br>
+  - MiDispositivo de tipo Dispositivo.</br>
+  - TiempoReparacion de tipo int</br>
+  - PrecioPiezas de tipo double</br></br>
+  Además, cuenta con un constructor que recibe como parametros los valores que pasaremos a esos tres atributos y una función CalcularPrecioReparacion que es abstracta y será implementada en las dos subclases que hereden de esta superclase.
+</h4>
+
+<h3><b></b>ReparacionSimple.cs</b>
+</h3>
+<h4 align="justify">La subclase ReparacionSimple.cs hereda de la superclase Reparacion.cs y es creada con la finalidad de implementar la función CalcularPrecioReparacion que en la superclase definimos como abstracta.</br></br>
+  Cuenta con un constructor que recibe como parametros los valores que otorgaremos a los atributos que heredamos de la superclase. Además, implementa la función ya comentada siguiendo la fórmula que nos dicta el enunciado expuesto en la parte de arriba de esta página.
+</h4>
+
+<h3><b></b>ReparacionCompleja.cs</b>
+</h3>
+<h4 align="justify">La subclase ReparacionCompleja.cs hereda de la superclase Reparacion.cs y es creada con la finalidad de implementar la función CalcularPrecioReparacion que en la superclase definimos como abstracta.</br></br>
+  Cuenta con un constructor que recibe como parametros los valores que otorgaremos a los atributos que heredamos de la superclase. Además, implementa la función ya comentada siguiendo la fórmula que nos dicta el enunciado expuesto en la parte de arriba de esta página.
+</h4>
+<h2>NOTA: Se podría implementar un atributo en la clase Reparacion.cs que discriminase en caso de que la Reparacion fuese simple o compleja y usarla en la función de la propia superclase, ahorrándonos así la implementación de ambas subclases, pero esta resolución responde a un enunciado en el que es obligatorio implementar una jerarquía de clases tanto para los dispositivos como para las reparaciones, a pesar de que para un proyecto más optimizado, lo suyo sería hacerlo de la forma comentada.</h2>
+
+
+
+
+
+
+<h3><b>Paciente.java</b>
+</h3>
+<h4 align="justify">La subclase Paceinte.java hereda de la superclase Persona.java y se crea con la finalidad de poder instanciar los distintos pacientes del sistema. Al heredar de la superclase persona, hereda los tres atributos que comentamos anteriormente, además de contar con uno nuevo:</br></br>
+  - numHistorialPaciente de tipo int.</br></br>
+  Además, cuenta con un constructor que recibe como parametros los valores que pasaremos a este atributos y a los otros tres que hereda de la clase persona, con métodos getter y setter para el atributo propio de la subclase, un método toString que devuelve la información de cada paciente por pantalla, una función listarPacientes, que saca por pantalla la información de todos los pacientes que tenga la lista de pacientes que nos pasan como parámetro y una función anhadirPaciente que nos permite añadir un nuevo enfermero al sistema pidiéndole al usuario sus datos. </br>
+  NOTA: no se implementa la funcionalidad eliminarPaciente porque a pesar de que a un paciente se le de el alta, este quedará guardado en el sistema como histórico, por lo que no existe una función buscarPaciente análoga a la de la clase Medico o Enfermero.
+</h4>
+
+<h3><b>Cita.java</b>
+</h3>
+<h4 align="justify">La clase Cita.java se crea con la finalidad de poder instanciar las distintas citas del sistema. Cuenta con seis atributos:</br></br>
+  - IDCita de tipo int.</br>
+  - medico de tipo Medico.</br>
+  - paciente de tipo Paciente.</br>
+  - enfermero de tipo Enfermero.</br>
+  - fecha de tipo LocalDate.</br>
+  - motivo de tipo String.</br></br>
+  Además, cuenta con un constructor que recibe como parametros los valores que pasaremos a estos atributos, con métodos getter y setter para el atributo IDCita, un método toString que devuelve la información de cada cita por pantalla, una función listarCitas, que saca por pantalla la información de todos las citas que tenga la lista de citas que nos pasan como parámetro y una función encontrarCita, que usa otra como auxiliar, que nos permite devolver una cita con el ID que nos pasa el usuario para devolverla a la clase principal y poder eliminarla  
+</h4>
+
+<h3><b>GestionConsulta.java</b>
+</h3>
+<h4 align="justify">La clase GestionConsulta es la clase que orquesta la lógica de las clases para hacer que el programa funcione correctamente. Cuenta con seis variables globales:</br></br>
+  - fechaEspecifica de tipo LocalDate.</br>
+  - ultimoIDPaciente de tipo int.</br>
+  - opcion de tipo int.</br>
+  - salir de tipo boolean.</br>
+  - scanner de tipo Scanner.</br>
+  - cont de tipo boolean.</br></br>
+  En esta clase, creamos dos médicos, dos enfermeros, un paciente y dos citas y los metemos en los array correspondientes que hemos creado (medicos (lista de médicos), enfermeros (lista de enfermeros), pacientes (lista de pacientes) y citas (lista de citas)).</br>
+  Creamos el menú a través de la variable de control salir, lo que nos permite acceder a la funcionalidad que el usuario elija de las 12 posibles:</br></br>
+  - Añadir un paciente nuevo.</br>
+  - Añadir un médico nuevo.</br>
+  - Añadir un enfermero nuevo.</br>
+  - Listar los pacientes.</br>
+  - Listar las citas.</br>
+  - Listar los médicos. </br>
+  - Listar los enfermeros. </br>
+  - Eliminar un médico.</br>
+  - Eliminar una cita por ID.</br>
+  - Listar personal (medicos y enfermeros) al completo.</br>
+  - Salir </br></br>
+  En esta clase se encuentra además la función listarPersonal, la que recibe como parámetros una lista de medicos y una lista de pacientes y devuelve la información por pantalla.
+</h4>
+
+
 
