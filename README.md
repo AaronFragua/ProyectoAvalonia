@@ -93,58 +93,14 @@
 </h3>
 <h4 align="justify">La subclase ReparacionCompleja.cs hereda de la superclase Reparacion.cs y es creada con la finalidad de implementar la función CalcularPrecioReparacion que en la superclase definimos como abstracta.</br></br>
   Cuenta con un constructor que recibe como parametros los valores que otorgaremos a los atributos que heredamos de la superclase. Además, implementa la función ya comentada siguiendo la fórmula que nos dicta el enunciado expuesto en la parte de arriba de esta página.
-</h4>
-<h2>NOTA: Se podría implementar un atributo en la clase Reparacion.cs que discriminase en caso de que la Reparacion fuese simple o compleja y usarla en la función de la propia superclase, ahorrándonos así la implementación de ambas subclases, pero esta resolución responde a un enunciado en el que es obligatorio implementar una jerarquía de clases tanto para los dispositivos como para las reparaciones, a pesar de que para un proyecto más optimizado, lo suyo sería hacerlo de la forma comentada.</h2>
+</h4></br></br>
+<h2 align="justify">NOTA: Se podría implementar un atributo en la clase Reparacion.cs que discriminase en caso de que la Reparacion fuese simple o compleja y usarla en la función de la propia superclase, ahorrándonos así la implementación de ambas subclases, pero esta resolución responde a un enunciado en el que es obligatorio implementar una jerarquía de clases tanto para los dispositivos como para las reparaciones, a pesar de que para un proyecto más optimizado, lo suyo sería hacerlo de la forma comentada.</h2></br></br>
 
-
-
-
-
-
-<h3><b>Paciente.java</b>
+<h3><b></b>MainWindow.axaml</b>
 </h3>
-<h4 align="justify">La subclase Paceinte.java hereda de la superclase Persona.java y se crea con la finalidad de poder instanciar los distintos pacientes del sistema. Al heredar de la superclase persona, hereda los tres atributos que comentamos anteriormente, además de contar con uno nuevo:</br></br>
-  - numHistorialPaciente de tipo int.</br></br>
-  Además, cuenta con un constructor que recibe como parametros los valores que pasaremos a este atributos y a los otros tres que hereda de la clase persona, con métodos getter y setter para el atributo propio de la subclase, un método toString que devuelve la información de cada paciente por pantalla, una función listarPacientes, que saca por pantalla la información de todos los pacientes que tenga la lista de pacientes que nos pasan como parámetro y una función anhadirPaciente que nos permite añadir un nuevo enfermero al sistema pidiéndole al usuario sus datos. </br>
-  NOTA: no se implementa la funcionalidad eliminarPaciente porque a pesar de que a un paciente se le de el alta, este quedará guardado en el sistema como histórico, por lo que no existe una función buscarPaciente análoga a la de la clase Medico o Enfermero.
-</h4>
+<h4 align="justify">La clase MainWindow.cs contiene la creación de los objetos que se usarán en la clase MainWindow.axaml.cs. En esta clase definimos el botón de calcular precio de la reparación, los comboboxes que se desplegarán para las bandas de radio y para los tipos de dispositivos y las textboxes que se desplegarán para los demás campos a rellenar, además de dejar visibles los campos que se rellenarán siempre y ocultar los que son propios de cada dispositivo para que en la lógica de la clase MainWindow.axaml.cs se muestren cuando elijamos el dispositivo objeto de la reparación.</br></br></h4>
 
-<h3><b>Cita.java</b>
+<h3><b></b>MainWindow.axaml.cs</b>
 </h3>
-<h4 align="justify">La clase Cita.java se crea con la finalidad de poder instanciar las distintas citas del sistema. Cuenta con seis atributos:</br></br>
-  - IDCita de tipo int.</br>
-  - medico de tipo Medico.</br>
-  - paciente de tipo Paciente.</br>
-  - enfermero de tipo Enfermero.</br>
-  - fecha de tipo LocalDate.</br>
-  - motivo de tipo String.</br></br>
-  Además, cuenta con un constructor que recibe como parametros los valores que pasaremos a estos atributos, con métodos getter y setter para el atributo IDCita, un método toString que devuelve la información de cada cita por pantalla, una función listarCitas, que saca por pantalla la información de todos las citas que tenga la lista de citas que nos pasan como parámetro y una función encontrarCita, que usa otra como auxiliar, que nos permite devolver una cita con el ID que nos pasa el usuario para devolverla a la clase principal y poder eliminarla  
-</h4>
-
-<h3><b>GestionConsulta.java</b>
-</h3>
-<h4 align="justify">La clase GestionConsulta es la clase que orquesta la lógica de las clases para hacer que el programa funcione correctamente. Cuenta con seis variables globales:</br></br>
-  - fechaEspecifica de tipo LocalDate.</br>
-  - ultimoIDPaciente de tipo int.</br>
-  - opcion de tipo int.</br>
-  - salir de tipo boolean.</br>
-  - scanner de tipo Scanner.</br>
-  - cont de tipo boolean.</br></br>
-  En esta clase, creamos dos médicos, dos enfermeros, un paciente y dos citas y los metemos en los array correspondientes que hemos creado (medicos (lista de médicos), enfermeros (lista de enfermeros), pacientes (lista de pacientes) y citas (lista de citas)).</br>
-  Creamos el menú a través de la variable de control salir, lo que nos permite acceder a la funcionalidad que el usuario elija de las 12 posibles:</br></br>
-  - Añadir un paciente nuevo.</br>
-  - Añadir un médico nuevo.</br>
-  - Añadir un enfermero nuevo.</br>
-  - Listar los pacientes.</br>
-  - Listar las citas.</br>
-  - Listar los médicos. </br>
-  - Listar los enfermeros. </br>
-  - Eliminar un médico.</br>
-  - Eliminar una cita por ID.</br>
-  - Listar personal (medicos y enfermeros) al completo.</br>
-  - Salir </br></br>
-  En esta clase se encuentra además la función listarPersonal, la que recibe como parámetros una lista de medicos y una lista de pacientes y devuelve la información por pantalla.
-</h4>
-
-
+<h4 align="justify">La clase MainWindow.axaml.cs contiene toda la lógica del front, es decir, en ella se carga el formulario, el botón de calcular precio de la reparación y sacarlo por pantalla para que lo vea el usuario, se comprueba que los valores introducidos en los campos sean correctos (cumplan el formato) y en caso contrario se enseña por pantalla un mensaje de error como hemos visto en los ejemplos anteriores, se crea el dispositivo y la reparación con los datos introducidos y se llama a la función para calcular el precio de la reparación en función de si se trata de una reparación simple o compleja. Además, esta clase también se encarga de ocultar o enseñar la petición de los distintos campos según el tipo de dispositivo que se haya introducido.</br></br></h4>
 
