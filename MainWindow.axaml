@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ProyectoAvalonia.MainWindow"
+        Title="Tienda de Reparaciones"
+        Width="400" Height="450">
+    <StackPanel Margin="20">
+
+        <ComboBox Name="DispositivoComboBox" PlaceholderText="Seleccionar dispositivo">
+                               <ComboBoxItem Content="Seleccione un dispositivo" IsEnabled="False" IsSelected="True" />
+                               <ComboBoxItem Content="Radio"/>
+                               <ComboBoxItem Content="Televisor"/>
+                               <ComboBoxItem Content="DVD"/>
+                               <ComboBoxItem Content="TDT"/>
+                           </ComboBox>
+
+        <TextBlock Text="Introduce los detalles del dispositivo" Margin="0,10,0,5"/>
+        
+        <TextBox Name="NumeroSerieTextBox" Watermark="Numero de serie del dispositivo"/>
+        <TextBox Name="ModeloTextBox" Watermark="Modelo del dispositivo"/>
+        <ComboBox Name="BandasComboBox" PlaceholderText="Selecciona las bandas" IsVisible="False">
+            <ComboBoxItem Content="AM"/>
+            <ComboBoxItem Content="FM"/>
+            <ComboBoxItem Content="AMBAS"/>
+        </ComboBox>
+        
+        <TextBox Name="PulgadasTextBox" Watermark="Pulgadas del televisor" IsVisible="False"/>
+        <TextBox Name="BlueRayTextBox" Watermark="¿Soporta Blue-Ray? (Sí/No)" IsVisible="False"/>
+        <TextBox Name="TiempoGrabacionTextBox" Watermark="Tiempo de grabación en minutos" IsVisible="False"/>
+        <TextBox Name="TiempoGrabacionTdtTextBox" Watermark="Tiempo de grabación máximo" IsVisible="False"/>
+
+        <TextBox Name="TiempoReparacionTextBox" Watermark="Tiempo de reparación en minutos"/>
+        <TextBox Name="CostePiezasTextBox" Watermark="Coste de las piezas"/>
+
+        <Button Name="CalcularPrecioButton" Content="Calcular precio de reparación" Margin="0,20,0,0"/>
+
+        <TextBox Name="PrecioTotalTextBox" Watermark="Precio total" IsReadOnly="True"/>
+    </StackPanel>
+</Window>
